@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Suvi">
         <activity
+            android:name=".OnboardingActivity"
+            android:exported="true" />
+        <activity
             android:name=".TypeSelectionActivity"
             android:exported="true" />
         <activity

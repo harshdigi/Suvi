@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Suvi</string>
+    <string name="kalvi_fun_learning">Kalvi Fun Learning</string>
+    <string name="let_s_get_started">Let\'s get started</string>
+    <!-- SLIDE TITILE -->
+    <string name="slide_title_one">Sample 1</string>
+    <string name="slide_title_two">Sample 2</string>
+    <string name="slide_title_three">Sample 3</string>
+    <string name="slide_title_four">Sample 4</string>
+    <!-- SLIDE DESCRIPTION -->
+    <string name="slide_desc_one">Sample Desc 1</string>
+    <string name="slide_desc_two">Sample Desc 2</string>
+    <string name="slide_desc_three">Sample Desc 3</string>
+    <string name="slide_desc_four">Sample Desc 4</string>
 </resources>

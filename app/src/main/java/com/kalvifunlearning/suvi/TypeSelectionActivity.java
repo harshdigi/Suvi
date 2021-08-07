@@ -18,14 +18,14 @@ public class TypeSelectionActivity extends AppCompatActivity {
         binding = ActivityTypeSelectionBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.studentButton.setOnClickListener(new View.OnClickListener() {
+        binding.studentCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(TypeSelectionActivity.this, TeacherSignUpActivity.class));
             }
         });
 
-        binding.teacherButton.setOnClickListener(new View.OnClickListener() {
+        binding.teacherCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(TypeSelectionActivity.this, TeacherSignUpActivity.class));
