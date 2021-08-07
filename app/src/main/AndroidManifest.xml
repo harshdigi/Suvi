@@ -10,8 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Suvi">
         <activity
+            android:name=".TypeSelectionActivity"
+            android:exported="true" />
+        <activity
+            android:name=".TeacherSignUpActivity"
+            android:exported="true" />
+        <activity
             android:name=".SplashActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,9 +26,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"
