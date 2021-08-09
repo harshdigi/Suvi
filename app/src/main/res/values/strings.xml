@@ -12,4 +12,10 @@
     <string name="slide_desc_two">Sample Desc 2</string>
     <string name="slide_desc_three">Sample Desc 3</string>
     <string name="slide_desc_four">Sample Desc 4</string>
+
+        <string-array name="boards_array">
+            <item>CBSE</item>
+            <item>TBSE</item>
+        </string-array>
+
 </resources>

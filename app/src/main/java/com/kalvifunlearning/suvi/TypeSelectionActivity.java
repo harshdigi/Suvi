@@ -21,7 +21,7 @@ public class TypeSelectionActivity extends AppCompatActivity {
         binding.studentCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(TypeSelectionActivity.this, TeacherSignUpActivity.class));
+                startActivity(new Intent(TypeSelectionActivity.this, StudentSignUpActivity.class));
             }
         });
 
