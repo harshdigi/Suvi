@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Suvi">
         <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".StudentSignUpActivity"
+            android:exported="true" />
+        <activity
             android:name=".OnboardingActivity"
             android:exported="true" />
         <activity
