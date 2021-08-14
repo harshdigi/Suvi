@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="student_class">
+        <item>5th</item>
+        <item>6th</item>
+        <item>7th</item>
+        <item>8th</item>
+        <item>9th</item>
+        <item>10th</item>
+        <item>11th</item>
+        <item>12th</item>
+
+    </string-array>
+    <string-array name="student_board">
+        <item>CBSE</item>
+        <item>ICSE</item>
+        <item>Tamil Nadu Board</item>
+
+    </string-array>
+    <string-array name="student_language">
+        <item>Hindi</item>
+        <item>English</item>
+        <item>Tamil</item>
+    </string-array>
+</resources>

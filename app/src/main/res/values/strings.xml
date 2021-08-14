@@ -12,10 +12,10 @@
     <string name="slide_desc_two">Sample Desc 2</string>
     <string name="slide_desc_three">Sample Desc 3</string>
     <string name="slide_desc_four">Sample Desc 4</string>
+    <string name="signup_txt">Sign up to connect with peers, access fun learning resources, play games and clarify doubts!</string>
 
-        <string-array name="boards_array">
-            <item>CBSE</item>
-            <item>TBSE</item>
-        </string-array>
+   <string name="your_board">Your Board</string>
+    <string name="your_class">Your Class</string>
+    <string name="your_language">Your Preferred Language</string>
 
 </resources>
