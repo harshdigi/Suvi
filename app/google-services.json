@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "184012673156",
+    "project_id": "suvi-kavlitechteam",
+    "storage_bucket": "suvi-kavlitechteam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184012673156:android:cf96bfbfd68e426c9eb2d1",
+        "android_client_info": {
+          "package_name": "com.kalvifunlearning.suvi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184012673156-mecurta9vdms5vjp38o259gheku30587.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDe5rYs0lOCRuWLgERoDHXSXr7EARvzcF0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184012673156-mecurta9vdms5vjp38o259gheku30587.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
