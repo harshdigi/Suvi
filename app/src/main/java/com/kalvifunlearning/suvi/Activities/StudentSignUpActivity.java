@@ -1,4 +1,4 @@
-package com.kalvifunlearning.suvi;
+package com.kalvifunlearning.suvi.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,116 +17,128 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.kalvifunlearning.suvi.databinding.ActivityTeacherSignUpBinding;
+import com.kalvifunlearning.suvi.Models.StudentModel;
+import com.kalvifunlearning.suvi.databinding.ActivityStudentSignUpBinding;
 
 import java.util.regex.Pattern;
 
-public class TeacherSignUpActivity extends AppCompatActivity {
+public class StudentSignUpActivity extends AppCompatActivity {
 
-    ActivityTeacherSignUpBinding binding;
+    ActivityStudentSignUpBinding binding;
     //Firebase Variable
-    private FirebaseDatabase rootNode;
+    private  FirebaseDatabase rootNode;
     private DatabaseReference rootRefrence;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityTeacherSignUpBinding.inflate(getLayoutInflater());
+        binding = ActivityStudentSignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        //Firebase Hooks
-        rootNode = FirebaseDatabase.getInstance();
-        rootRefrence = rootNode.getReference("Users");
-        mAuth = FirebaseAuth.getInstance();
-        
-        binding.loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(TeacherSignUpActivity.this, LoginActivity.class));
-            }
-        });
         binding.createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                registerUser(v);
+                creatAccount(v);
             }
         });
-        
+        binding.loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StudentSignUpActivity.this, LoginActivity.class));
+            }
+        });
+        //Firebase Hooks
+       rootNode = FirebaseDatabase.getInstance();
+       rootRefrence = rootNode.getReference("Users");
+        mAuth = FirebaseAuth.getInstance();
 
     }
     private Boolean validateName() {
-        String val = binding.userName.getText().toString();
+        String val = binding.yourName.getText().toString();
         if (val.isEmpty()) {
-            binding.userName.setError("Field cannot be empty");
+            binding.yourName.setError("Field cannot be empty");
             return false;
         } else {
-            binding.userName.setError(null);
+            binding.yourName.setError(null);
             return true;
         }
     }
     private Boolean validateEmail(){
-        String val = binding.userEmail.getText().toString();
+        String val = binding.yourEmail.getText().toString();
         Pattern pattern = Patterns.EMAIL_ADDRESS;
         if(val.isEmpty()){
-            binding.userEmail.setError("Field cannot be empty");
+            binding.yourEmail.setError("Field cannot be empty");
             return false;
         }
         if(!pattern.matcher(val).matches()){
-            binding.userEmail.setError("Enter Valid Email");
+            binding.yourEmail.setError("Enter Valid Email");
             return false;
         }
-        binding.userEmail.setError(null);
+        binding.yourEmail.setError(null);
         return true;
 
     }
     private Boolean validateMobile(){
-        String val = binding.userMobile.getText().toString();
+        String val = binding.yourPhone.getText().toString();
         if(val.isEmpty()){
-            binding.userMobile.setError("Field cannot be empty");
+            binding.yourPhone.setError("Field cannot be empty");
             return false;
         }
         if(val.length()!=10){
-            binding.userMobile.setError("Enter valid 10 digit Mobile Number");
+            binding.yourPhone.setError("Enter valid 10 digit Mobile Number");
             return false;
         }
-        binding.userMobile.setError(null);
+        binding.yourPhone.setError(null);
         return true;
 
     }
     private Boolean validatePassword(){
-        String val = binding.userPassword.getText().toString();
-        String cpass = binding.userConfirmPassword.getText().toString();
+        String val = binding.yourPassword.getText().toString();
+        String cpass = binding.yourConfirmPassword.getText().toString();
         String passPatter = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";
         if(val.isEmpty()){
-            binding.userPassword.setError("Field cannot be empty");
+            binding.yourPassword.setError("Field cannot be empty");
             return false;
         }
         else if(!val.matches(passPatter)) {
-            binding.userPassword.setError("Password too weak, Password must be 4 characters.\nPassword must not contain whitespace.\nPassword must contain at least 1 special character. ");
+            binding.yourPassword.setError("Password too weak, Password must be 4 characters.\nPassword must not contain whitespace.\nPassword must contain at least 1 special character. ");
             return false;
         }
         else if(!val.equals(cpass)){
-            binding.userPassword.setError("Password and Confirm Password must match");
+            binding.yourPassword.setError("Password and Confirm Password must match");
             return false;
         }
         else{
-            binding.userPassword.setError(null);
+            binding.yourPassword.setError(null);
+            return true;
+        }
+    }
+    private Boolean validateCity() {
+        String val = binding.yourCity.getText().toString();
+        if (val.isEmpty()) {
+            binding.yourCity.setError("Field cannot be empty");
+            return false;
+        } else {
+            binding.yourCity.setError(null);
             return true;
         }
     }
 
-    private void registerUser(View v) {
-        if(!validateName() | !validateEmail()  | !validateMobile() | !validatePassword()) {
+    private void creatAccount(View view) {
+        if(!validateName() | !validateEmail()  | !validateMobile() | !validatePassword() | !validateCity()) {
             return;
         }
         else{
-        String name =binding.userName.getText().toString();
-        String email = binding.userEmail.getText().toString();
-        String mobile = binding.userMobile.getText().toString();
-        String password = binding.userMobile.getText().toString();
-        String accountType ="Teacher";
-        String  isVerifiedTeacher = "false";
-        mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(TeacherSignUpActivity.this, new OnCompleteListener<AuthResult>() {
+            final String name = binding.yourName.getText().toString();
+            final String email = binding.yourEmail.getText().toString();
+            final String mobile = binding.yourPhone.getText().toString();
+            final String password = binding.yourPassword.getText().toString();
+            final String city =binding.yourCity.getText().toString();
+            final String board = binding.yourBoard.getSelectedItem().toString();
+            final String standard = binding.yourClass.getSelectedItem().toString();
+            final String language = binding.yourLanguage.getSelectedItem().toString();
+            final String accountType = "Student";
+            mAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(StudentSignUpActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
@@ -134,21 +146,21 @@ public class TeacherSignUpActivity extends AppCompatActivity {
                                 Log.d("Created", "createUserWithEmail:success");
                                 final FirebaseUser user = mAuth.getCurrentUser();
                                 user.sendEmailVerification()
-                                        .addOnCompleteListener(TeacherSignUpActivity.this, new OnCompleteListener() {
+                                        .addOnCompleteListener(StudentSignUpActivity.this, new OnCompleteListener() {
                                             @Override
                                             public void onComplete(@NonNull Task task) {
                                                 // Re-enable button
                                                 if (task.isSuccessful()) {
-                                                    TeacherModel teacherModel = new TeacherModel(name,email,mobile,accountType,isVerifiedTeacher);
-                                                    rootRefrence.child(user.getUid()).setValue(teacherModel);
-                                                    Toast.makeText(TeacherSignUpActivity.this,
+                                                    StudentModel studentModel = new StudentModel(name,email,mobile,city,board,standard,language,accountType);
+                                                    rootRefrence.child(user.getUid()).setValue(studentModel);
+                                                    Toast.makeText(StudentSignUpActivity.this,
                                                             "Verification email sent to " + user.getEmail(),
                                                             Toast.LENGTH_SHORT).show();
 
                                                     FirebaseAuth.getInstance().signOut();
                                                 } else {
                                                     Log.e("Email", "sendEmailVerification", task.getException());
-                                                    Toast.makeText(TeacherSignUpActivity.this,
+                                                    Toast.makeText(StudentSignUpActivity.this,
                                                             "Failed to send verification email.",
                                                             Toast.LENGTH_SHORT).show();
                                                 }
@@ -157,7 +169,7 @@ public class TeacherSignUpActivity extends AppCompatActivity {
                             } else {
                                 // If sign in fails, display a message to the user.
                                 Log.w("Fail", "createUserWithEmail:failure", task.getException());
-                                Toast.makeText(TeacherSignUpActivity.this, "Authentication failed.",
+                                Toast.makeText(StudentSignUpActivity.this, "Authentication failed.",
                                         Toast.LENGTH_SHORT).show();
 
                             }
@@ -165,7 +177,6 @@ public class TeacherSignUpActivity extends AppCompatActivity {
                             // ...
                         }
                     });
-
 
         }
     }

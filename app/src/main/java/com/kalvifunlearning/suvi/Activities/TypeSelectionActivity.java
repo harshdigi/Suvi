@@ -1,4 +1,4 @@
-package com.kalvifunlearning.suvi;
+package com.kalvifunlearning.suvi.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TypeSelectionActivity"
+    tools:context=".Activities.TypeSelectionActivity"
     android:background="@color/light_White">
 
 
@@ -82,7 +82,7 @@
             android:layout_height="200dp"
             android:layout_alignParentRight="true"
             android:layout_marginTop="-55dp"
-            android:src="@drawable/ic_student" />
+            android:src="@drawable/ic_student_login" />
 
 
 

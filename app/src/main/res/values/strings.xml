@@ -14,8 +14,10 @@
     <string name="slide_desc_four">Sample Desc 4</string>
     <string name="signup_txt">Sign up to connect with peers, access fun learning resources, play games and clarify doubts!</string>
 
-   <string name="your_board">Your Board</string>
+    <string name="your_board">Your Board</string>
     <string name="your_class">Your Class</string>
     <string name="your_language">Your Preferred Language</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.kalvifunlearning.suvi;
+package com.kalvifunlearning.suvi.Models;
 
 public class StudentModel {
     String name, email, mobile, city, board, standard , language , accountType ;
