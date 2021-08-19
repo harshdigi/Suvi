@@ -146,7 +146,11 @@ public class TeacherSignUpActivity extends AppCompatActivity {
                                                             "Verification email sent to " + user.getEmail(),
                                                             Toast.LENGTH_SHORT).show();
 
+
                                                     FirebaseAuth.getInstance().signOut();
+
+                                                    startActivity(new Intent(TeacherSignUpActivity.this, LoginActivity.class));
+                                                    finish();
                                                 } else {
                                                     Log.e("Email", "sendEmailVerification", task.getException());
                                                     Toast.makeText(TeacherSignUpActivity.this,

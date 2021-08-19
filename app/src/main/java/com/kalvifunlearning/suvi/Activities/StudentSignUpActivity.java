@@ -158,6 +158,8 @@ public class StudentSignUpActivity extends AppCompatActivity {
                                                             Toast.LENGTH_SHORT).show();
 
                                                     FirebaseAuth.getInstance().signOut();
+                                                    startActivity(new Intent(StudentSignUpActivity.this, LoginActivity.class));
+                                                    finish();
                                                 } else {
                                                     Log.e("Email", "sendEmailVerification", task.getException());
                                                     Toast.makeText(StudentSignUpActivity.this,
