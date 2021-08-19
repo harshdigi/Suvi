@@ -1,9 +1,10 @@
-package com.kalvifunlearning.suvi;
+package com.kalvifunlearning.suvi.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
@@ -16,7 +17,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.auth.SignInMethodQueryResult;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,7 +25,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.kalvifunlearning.suvi.databinding.ActivityLoginBinding;
-import com.kalvifunlearning.suvi.databinding.ActivityStudentSignUpBinding;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -33,8 +32,10 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
-    ActivityLoginBinding binding;
-    FirebaseAuth mAuth;
+    private ActivityLoginBinding binding;
+    private FirebaseAuth mAuth;
+
+    private SharedPreferences mSahredPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -145,12 +146,29 @@ public class LoginActivity extends AppCompatActivity {
                                                 if (snapshot.exists()) {
                                                     binding.yourEmail.setError(null);
                                                     binding.yourPassword.setError(null);
-                                                    String nameFromDB = snapshot.child(user.getUid()).child("name").getValue(String.class);
-                                                    String ageFromDB = snapshot.child(user.getUid()).child("age").getValue(String.class);
-                                                    String emailFromDB = snapshot.child(user.getUid()).child("email").getValue(String.class);
-                                                    String genderFromDB = snapshot.child(user.getUid()).child("gender").getValue(String.class);
-                                                    String phonenoFromDB = snapshot.child(user.getUid()).child("phoneno").getValue(String.class);
-                                                    String weight = snapshot.child(user.getUid()).child("weight").getValue(String.class);
+                                                    String userId = user.getUid();
+                                                    mSahredPref = getSharedPreferences("userDetails", MODE_PRIVATE);
+                                                    SharedPreferences.Editor editor = mSahredPref.edit();
+                                                    String accountType = snapshot.child(userId).child("accountType").getValue(String.class);
+
+                                                    editor.putString("accountType",accountType);
+                                                    if(accountType.equalsIgnoreCase("Teacher")){
+                                                        editor.putString("name",snapshot.child(userId).child("name").getValue(String.class));
+                                                        editor.putString("email",snapshot.child(userId).child("email").getValue(String.class));
+                                                        editor.putString("mobile",snapshot.child(userId).child("mobile").getValue(String.class));
+                                                        editor.putString("isVerifiedTeacher",snapshot.child(userId).child("name").getValue(String.class));
+                                                        editor.apply();
+                                                       }
+                                                    else if (accountType.equalsIgnoreCase("Student")){
+                                                        editor.putString("name",snapshot.child(userId).child("name").getValue(String.class));
+                                                        editor.putString("email",snapshot.child(userId).child("email").getValue(String.class));
+                                                        editor.putString("mobile",snapshot.child(userId).child("mobile").getValue(String.class));
+                                                        editor.putString("board",snapshot.child(userId).child("board").getValue(String.class));
+                                                        editor.putString("city",snapshot.child(userId).child("city").getValue(String.class));
+                                                        editor.putString("language",snapshot.child(userId).child("language").getValue(String.class));
+                                                        editor.putString("standard",snapshot.child(userId).child("standard").getValue(String.class));
+                                                        editor.apply();
+                                                    }
                                                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                                     startActivity(intent);
                                                     finish();

@@ -1,4 +1,4 @@
-package com.kalvifunlearning.suvi;
+package com.kalvifunlearning.suvi.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.PagerAdapter;
+
+import com.kalvifunlearning.suvi.R;
 
 public class OnboardingAdapter extends PagerAdapter {
     Context context;

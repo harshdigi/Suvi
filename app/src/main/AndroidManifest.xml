@@ -13,22 +13,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Suvi">
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activities.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".StudentSignUpActivity"
+            android:name=".Activities.StudentSignUpActivity"
             android:exported="true" />
         <activity
-            android:name=".OnboardingActivity"
+            android:name=".Activities.OnboardingActivity"
             android:exported="true" />
         <activity
-            android:name=".TypeSelectionActivity"
+            android:name=".Activities.TypeSelectionActivity"
             android:exported="true" />
         <activity
-            android:name=".TeacherSignUpActivity"
+            android:name=".Activities.TeacherSignUpActivity"
             android:exported="true" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".Activities.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,7 +37,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:exported="true" />
 
         <meta-data

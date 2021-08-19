@@ -1,4 +1,4 @@
-package com.kalvifunlearning.suvi;
+package com.kalvifunlearning.suvi.Models;
 
 public class TeacherModel {
     String name,email, mobile,accountType, isVerifiedTeacher;

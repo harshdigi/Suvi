@@ -1,4 +1,4 @@
-package com.kalvifunlearning.suvi;
+package com.kalvifunlearning.suvi.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -14,6 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.kalvifunlearning.suvi.Adapters.OnboardingAdapter;
+import com.kalvifunlearning.suvi.R;
 
 public class OnboardingActivity extends AppCompatActivity {
     private ViewPager viewPager;

@@ -1,4 +1,4 @@
-package com.kalvifunlearning.suvi;
+package com.kalvifunlearning.suvi.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.kalvifunlearning.suvi.R;
 
 public class SplashActivity extends AppCompatActivity {
     private SharedPreferences onBoardingScreen;
@@ -29,12 +33,20 @@ public class SplashActivity extends AppCompatActivity {
                     finish();
                 }
                 else{
-                    Intent intent = new Intent(SplashActivity.this, TypeSelectionActivity.class);
-                    startActivity(intent);
-                    finish();
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    if(user!=null){
+                        Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                    else {
+                        Intent intent1 = new Intent(SplashActivity.this, TypeSelectionActivity.class);
+                        startActivity(intent1);
+                        finish();
+                    }
                 }
             }
         },4000);
-
     }
+
 }
