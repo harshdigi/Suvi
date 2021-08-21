@@ -5,10 +5,83 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.TeacherAddFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="teacher add" />
+        android:background="@color/light_White">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/addVideoCard"
+                android:layout_width="match_parent"
+                android:layout_height="190dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/ic_add_video_bg">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="#00000000"
+                        android:padding="20dp"
+                        android:text="Tap Here"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:padding="10dp"
+                        android:text="Add Video"
+                        android:textColor="@color/black"
+                        android:textSize="30sp" />
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="250dp"
+                    android:layout_height="400dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="-50dp"
+                    android:src="@drawable/ic_add_video" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/comingSoon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="100dp"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center"
+                android:text="More features ? \n Coming Soon..."
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
 
 </FrameLayout>

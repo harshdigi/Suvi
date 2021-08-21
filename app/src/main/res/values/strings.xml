@@ -16,6 +16,10 @@
 
     <string name="your_board">Your Board</string>
     <string name="your_class">Your Class</string>
+    <string name="your_subject">Your Subject</string>
+    <string name="student_class">Student Class</string>
+    <string name="video_category">Video Category</string>
+    <string name="video_section">Class Section</string>
     <string name="your_language">Your Preferred Language</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
