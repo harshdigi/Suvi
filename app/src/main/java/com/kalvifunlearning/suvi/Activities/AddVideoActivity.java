@@ -167,6 +167,7 @@ public class AddVideoActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 dbReference.child(videoName).setValue(videoInfoModel);
                 Toast.makeText(AddVideoActivity.this, "Video Added", Toast.LENGTH_SHORT).show();
+                finish();
             }
 
             @Override
