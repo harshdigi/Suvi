@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="#E6E6E6"
     tools:context=".Activities.AddVideoActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_margin="10dp"
-        android:background="#000000"
+        android:background="#E6E6E6"
         tools:context=".Activities.AddVideoActivity">
 
         <EditText
@@ -33,6 +33,7 @@
             android:id="@+id/videoName"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:layout_marginStart="40dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/input_video_details_field"
             android:ems="10"
@@ -43,12 +44,29 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/nameText"
             app:layout_constraintTop_toTopOf="@+id/nameText"
-            app:layout_constraintVertical_bias="0.533" />
+            app:layout_constraintVertical_bias="0.571" />
+
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="88dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Video Name"
+            android:textAlignment="viewStart"
+            android:textColor="#404040"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/videoName"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/videoDetailText"
+            app:layout_constraintTop_toBottomOf="@+id/videoDetailText" />
 
         <EditText
             android:id="@+id/videoDescription"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
+            android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/input_video_details_field"
             android:ems="10"
@@ -57,10 +75,10 @@
             android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="@+id/descriptionText"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.166"
             app:layout_constraintStart_toStartOf="@+id/videoLink"
             app:layout_constraintTop_toTopOf="@+id/descriptionText"
-            app:layout_constraintVertical_bias="0.485" />
+            app:layout_constraintVertical_bias="0.529" />
 
         <RadioButton
             android:id="@+id/yesRadioButton"
@@ -78,7 +96,7 @@
             android:paddingRight="15dp"
             android:paddingBottom="10dp"
             android:text="YES"
-            android:textColor="@color/light_White"
+            android:textColor="#404040"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/openForAllText"
             app:layout_constraintEnd_toStartOf="@+id/noRadioButton"
@@ -104,7 +122,7 @@
             android:paddingRight="15dp"
             android:paddingBottom="10dp"
             android:text="NO"
-            android:textColor="@color/light_White"
+            android:textColor="#404040"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/openForAllText"
             app:layout_constraintEnd_toEndOf="parent"
@@ -114,23 +132,6 @@
             app:layout_constraintVertical_bias="0.521" />
 
         <TextView
-            android:id="@+id/nameText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginEnd="24dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Video Name"
-            android:textAlignment="viewStart"
-            android:textColor="#FFFCFC"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@+id/videoName"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/videoDetailText" />
-
-        <TextView
             android:id="@+id/videoDetailText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -138,7 +139,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/poppins_semibold"
             android:text="Video Details"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             android:textSize="34sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -149,9 +150,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="64dp"
             android:fontFamily="@font/poppins_semibold"
-            android:text="Link To Video"
+            android:text="Video Link"
             android:textAlignment="viewStart"
-            android:textColor="#F8F8F8"
+            android:textColor="#404040"
             android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@+id/videoLink"
             app:layout_constraintHorizontal_bias="0.0"
@@ -166,7 +167,7 @@
             android:fontFamily="@font/poppins_semibold"
             android:text="Description"
             android:textAlignment="viewStart"
-            android:textColor="#FFFFFF"
+            android:textColor="#404040"
             android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@+id/videoDescription"
             app:layout_constraintHorizontal_bias="0.0"
@@ -181,7 +182,7 @@
             android:fontFamily="@font/poppins_semibold"
             android:text="Board"
             android:textAlignment="viewStart"
-            android:textColor="#FFFDFD"
+            android:textColor="#404040"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/descriptionText"
             app:layout_constraintTop_toBottomOf="@+id/descriptionText" />
@@ -194,7 +195,7 @@
             android:fontFamily="@font/poppins_semibold"
             android:text="Language"
             android:textAlignment="viewStart"
-            android:textColor="#FFFFFF"
+            android:textColor="#404040"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/boardText"
             app:layout_constraintTop_toBottomOf="@+id/boardText" />
@@ -207,7 +208,7 @@
             android:fontFamily="@font/poppins_semibold"
             android:text="Subject"
             android:textAlignment="viewStart"
-            android:textColor="#FFFFFF"
+            android:textColor="#404040"
             android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@+id/subjectSpinner"
             app:layout_constraintHorizontal_bias="0.0"
@@ -222,7 +223,7 @@
             android:fontFamily="@font/poppins_semibold"
             android:text="Class"
             android:textAlignment="viewStart"
-            android:textColor="#FFFFFF"
+            android:textColor="#404040"
             android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@+id/classSpinner"
             app:layout_constraintHorizontal_bias="0.0"
@@ -237,7 +238,7 @@
             android:fontFamily="@font/poppins_semibold"
             android:text="Category"
             android:textAlignment="viewStart"
-            android:textColor="#FFFFFF"
+            android:textColor="#404040"
             android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@+id/categorySpinner"
             app:layout_constraintHorizontal_bias="0.0"
@@ -252,7 +253,7 @@
             android:fontFamily="@font/poppins_semibold"
             android:text="Section"
             android:textAlignment="viewStart"
-            android:textColor="#FFFFFF"
+            android:textColor="#404040"
             android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@+id/sectionSpinner"
             app:layout_constraintHorizontal_bias="0.0"
@@ -267,7 +268,7 @@
             android:fontFamily="@font/poppins_semibold"
             android:text="Open For All"
             android:textAlignment="viewStart"
-            android:textColor="#FFFFFF"
+            android:textColor="#404040"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@+id/sectionText"
             app:layout_constraintTop_toBottomOf="@+id/sectionText" />
