@@ -17,6 +17,9 @@
             android:name=".Activities.AddVideoActivity"
             android:exported="true" />
         <activity
+        android:name=".Activities.VideoActivity"
+        android:exported="true" />
+        <activity
             android:name=".Activities.LoginActivity"
             android:exported="true" />
         <activity
