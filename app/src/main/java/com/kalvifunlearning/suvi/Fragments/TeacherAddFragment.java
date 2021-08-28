@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
+import com.kalvifunlearning.suvi.Activities.AddStudentActivity;
 import com.kalvifunlearning.suvi.Activities.AddVideoActivity;
 import com.kalvifunlearning.suvi.R;
 
@@ -25,8 +26,16 @@ public class TeacherAddFragment extends Fragment {
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_teacher_add, container, false);
 
-       RelativeLayout button = root.findViewById(R.id.addVideoCard);
-       button.setOnClickListener(new View.OnClickListener() {
+       RelativeLayout addVideo = root.findViewById(R.id.addVideoCard);
+       RelativeLayout addStudent = root.findViewById(R.id.addStudent);
+       addStudent.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent intent = new Intent(getActivity(), AddStudentActivity.class);
+               startActivity(intent);
+           }
+       });
+       addVideo.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
                Intent intent = new Intent(getActivity(), AddVideoActivity.class);

@@ -15,14 +15,8 @@ import com.kalvifunlearning.suvi.R;
 
 import java.util.List;
 
-public class ParentItemAdapter
-        extends RecyclerView
-        .Adapter<ParentItemAdapter.ParentViewHolder> {
+public class ParentItemAdapter extends RecyclerView.Adapter<ParentItemAdapter.ParentViewHolder> {
 
-    // An object of RecyclerView.RecycledViewPool
-    // is created to share the Views
-    // between the child and
-    // the parent RecyclerViews
     private RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
     private List<ParentItemModel> itemList;
     private Context context;
@@ -35,99 +29,42 @@ public class ParentItemAdapter
 
     @NonNull
     @Override
-    public ParentViewHolder onCreateViewHolder(
-            @NonNull ViewGroup viewGroup,
-            int i)
+    public ParentViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i)
     {
 
-        // Here we inflate the corresponding
-        // layout of the parent item
-        View view = LayoutInflater
-                .from(viewGroup.getContext())
-                .inflate(
-                        R.layout.explore_parent_item,
-                        viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.explore_parent_item, viewGroup, false);
 
         return new ParentViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(
-            @NonNull ParentViewHolder parentViewHolder,
-            int position)
+    public void onBindViewHolder(@NonNull ParentViewHolder parentViewHolder, int position)
     {
 
-        // Create an instance of the ParentItem
-        // class for the given position
         ParentItemModel parentItem
                 = itemList.get(position);
 
-        // For the created instance,
-        // get the title and set it
-        // as the text for the TextView
-        parentViewHolder
-                .ParentItemTitle
-                .setText(parentItem.getParentItemTitle());
+        parentViewHolder.ParentItemTitle.setText(parentItem.getParentItemTitle());
 
-        // Create a layout manager
-        // to assign a layout
-        // to the RecyclerView.
+        LinearLayoutManager layoutManager = new LinearLayoutManager(parentViewHolder.ChildRecyclerView.getContext(), LinearLayoutManager.HORIZONTAL, false);
 
-        // Here we have assigned the layout
-        // as LinearLayout with vertical orientation
-        LinearLayoutManager layoutManager
-                = new LinearLayoutManager(
-                parentViewHolder
-                        .ChildRecyclerView
-                        .getContext(),
-                LinearLayoutManager.HORIZONTAL,
-                false);
+        layoutManager.setInitialPrefetchItemCount(parentItem.getChildItemList().size());
 
-        // Since this is a nested layout, so
-        // to define how many child items
-        // should be prefetched when the
-        // child RecyclerView is nested
-        // inside the parent RecyclerView,
-        // we use the following method
-        layoutManager
-                .setInitialPrefetchItemCount(
-                        parentItem
-                                .getChildItemList()
-                                .size());
-
-        // Create an instance of the child
-        // item view adapter and set its
-        // adapter, layout manager and RecyclerViewPool
-        ChildItemAdapter childItemAdapter
-                = new ChildItemAdapter(parentItem.getChildItemList(),context);
-        parentViewHolder
-                .ChildRecyclerView
-                .setLayoutManager(layoutManager);
-        parentViewHolder
-                .ChildRecyclerView
-                .setAdapter(childItemAdapter);
-        parentViewHolder
-                .ChildRecyclerView
-                .setRecycledViewPool(viewPool);
+        ChildItemAdapter childItemAdapter = new ChildItemAdapter(parentItem.getChildItemList(),context);
+        parentViewHolder.ChildRecyclerView.setHasFixedSize(true);
+        parentViewHolder.ChildRecyclerView.setLayoutManager(layoutManager);
+        parentViewHolder.ChildRecyclerView.setAdapter(childItemAdapter);
+        parentViewHolder.ChildRecyclerView.setRecycledViewPool(viewPool);
     }
 
-    // This method returns the number
-    // of items we have added in the
-    // ParentItemList i.e. the number
-    // of instances we have created
-    // of the ParentItemList
+
     @Override
     public int getItemCount()
     {
-
         return itemList.size();
     }
 
-    // This class is to initialize
-    // the Views present in
-    // the parent RecyclerView
-    class ParentViewHolder
-            extends RecyclerView.ViewHolder {
+    class ParentViewHolder extends RecyclerView.ViewHolder {
 
         private TextView ParentItemTitle;
         private RecyclerView ChildRecyclerView;
@@ -136,14 +73,9 @@ public class ParentItemAdapter
         {
             super(itemView);
 
-            ParentItemTitle
-                    = itemView
-                    .findViewById(
+            ParentItemTitle = itemView.findViewById(
                             R.id.parent_item_title);
-            ChildRecyclerView
-                    = itemView
-                    .findViewById(
-                            R.id.child_recyclerview);
+            ChildRecyclerView = itemView.findViewById(R.id.child_recyclerview);
         }
     }
 }

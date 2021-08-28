@@ -96,12 +96,17 @@ public class TeacherSignUpActivity extends AppCompatActivity {
     private Boolean validatePassword(){
         String val = binding.userPassword.getText().toString();
         String cpass = binding.userConfirmPassword.getText().toString();
-        String passPatter = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";
+        Pattern PASSWORD_PATTERN =
+                Pattern.compile("^" +
+                        "(?=.*[@#$%^&+=])" +     // at least 1 special character
+                        "(?=\\S+$)" +            // no white spaces
+                        ".{4,}" +                // at least 4 characters
+                        "$");
         if(val.isEmpty()){
             binding.userPassword.setError("Field cannot be empty");
             return false;
         }
-        else if(!val.matches(passPatter)) {
+        else if(!PASSWORD_PATTERN.matcher(val).matches()) {
             binding.userPassword.setError("Password too weak, Password must be 4 characters.\nPassword must not contain whitespace.\nPassword must contain at least 1 special character. ");
             return false;
         }

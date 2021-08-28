@@ -29,57 +29,59 @@ public class MainActivity extends AppCompatActivity {
         accountType = mSahredPref.getString("accountType","Teacher");
         adapter = new MainAdapter(this,5,accountType);
         viewPager2 = binding.mainContainer;
+        viewPager2.setUserInputEnabled(false);
         if(accountType.equalsIgnoreCase("Teacher")){
             chipNavigationBar.setMenuResource(R.menu.bottom_nav_menu_teacher);
             chipNavigationBar.setItemSelected(R.id.home_teacher,true);
             prevmenu = R.id.home_teacher;
             viewPager2.setAdapter(adapter);
+            viewPager2.setOffscreenPageLimit(5);
             viewPager2.setCurrentItem(0);
-            viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-                @Override
-                public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                    super.onPageScrolled(position, positionOffset, positionOffsetPixels);
-                }
-
-                @Override
-                public void onPageSelected(int position) {
-                    super.onPageSelected(position);
-                    switch (position) {
-                        case 0:
-                            chipNavigationBar.setItemSelected(prevmenu, false);
-                            chipNavigationBar.setItemSelected(R.id.home_teacher, true);
-                            prevmenu = R.id.home_teacher;
-                            break;
-                        case 1:
-                            chipNavigationBar.setItemSelected(prevmenu, false);
-                            chipNavigationBar.setItemSelected(R.id.add, true);
-                            prevmenu = R.id.add;
-                            break;
-                        case 2:
-                            chipNavigationBar.setItemSelected(prevmenu, false);
-                            chipNavigationBar.setItemSelected(R.id.student, true);
-                            prevmenu = R.id.student;
-                            break;
-                        case 3:
-                            chipNavigationBar.setItemSelected(prevmenu, false);
-                            chipNavigationBar.setItemSelected(R.id.calender_teacher, true);
-                            prevmenu = R.id.calender_teacher;
-                            break;
-                        case 4:
-                            chipNavigationBar.setItemSelected(prevmenu, false);
-                            chipNavigationBar.setItemSelected(R.id.profile_teacher, true);
-                            prevmenu = R.id.profile_teacher;
-                            break;
-                        default:
-                            return;
-                    }
-                }
-
-                @Override
-                public void onPageScrollStateChanged(int state) {
-                    super.onPageScrollStateChanged(state);
-                }
-            });
+//            viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+//                @Override
+//                public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//                    super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+//                }
+//
+//                @Override
+//                public void onPageSelected(int position) {
+//                    super.onPageSelected(position);
+//                    switch (position) {
+//                        case 0:
+//                            chipNavigationBar.setItemSelected(prevmenu, false);
+//                            chipNavigationBar.setItemSelected(R.id.home_teacher, true);
+//                            prevmenu = R.id.home_teacher;
+//                            break;
+//                        case 1:
+//                            chipNavigationBar.setItemSelected(prevmenu, false);
+//                            chipNavigationBar.setItemSelected(R.id.add, true);
+//                            prevmenu = R.id.add;
+//                            break;
+//                        case 2:
+//                            chipNavigationBar.setItemSelected(prevmenu, false);
+//                            chipNavigationBar.setItemSelected(R.id.student, true);
+//                            prevmenu = R.id.student;
+//                            break;
+//                        case 3:
+//                            chipNavigationBar.setItemSelected(prevmenu, false);
+//                            chipNavigationBar.setItemSelected(R.id.calender_teacher, true);
+//                            prevmenu = R.id.calender_teacher;
+//                            break;
+//                        case 4:
+//                            chipNavigationBar.setItemSelected(prevmenu, false);
+//                            chipNavigationBar.setItemSelected(R.id.profile_teacher, true);
+//                            prevmenu = R.id.profile_teacher;
+//                            break;
+//                        default:
+//                            return;
+//                    }
+//                }
+//
+//                @Override
+//                public void onPageScrollStateChanged(int state) {
+//                    super.onPageScrollStateChanged(state);
+//                }
+//            });
         }
         else if(accountType.equalsIgnoreCase("Student")){
             chipNavigationBar.setMenuResource(R.menu.bottom_nav_menu_student);
@@ -87,51 +89,51 @@ public class MainActivity extends AppCompatActivity {
             prevmenu = R.id.home_student;
             viewPager2.setAdapter(adapter);
             viewPager2.setCurrentItem(0);
-            viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-                @Override
-                public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                    super.onPageScrolled(position, positionOffset, positionOffsetPixels);
-                }
-
-                @Override
-                public void onPageSelected(int position) {
-                    super.onPageSelected(position);
-                    switch (position) {
-                        case 0:
-                            chipNavigationBar.setItemSelected(prevmenu, false);
-                            chipNavigationBar.setItemSelected(R.id.home_student, true);
-                            prevmenu = R.id.home_student;
-                            break;
-                        case 1:
-                            chipNavigationBar.setItemSelected(prevmenu, false);
-                            chipNavigationBar.setItemSelected(R.id.explore, true);
-                            prevmenu = R.id.explore;
-                            break;
-                        case 2:
-                            chipNavigationBar.setItemSelected(prevmenu, false);
-                            chipNavigationBar.setItemSelected(R.id.quiz, true);
-                            prevmenu = R.id.quiz;
-                            break;
-                        case 3:
-                            chipNavigationBar.setItemSelected(prevmenu, false);
-                            chipNavigationBar.setItemSelected(R.id.calender_student, true);
-                            prevmenu = R.id.calender_student;
-                            break;
-                        case 4:
-                            chipNavigationBar.setItemSelected(prevmenu, false);
-                            chipNavigationBar.setItemSelected(R.id.profile_student, true);
-                            prevmenu = R.id.profile_student;
-                            break;
-                        default:
-                            return;
-                    }
-                }
-
-                @Override
-                public void onPageScrollStateChanged(int state) {
-                    super.onPageScrollStateChanged(state);
-                }
-            });
+//            viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+//                @Override
+//                public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//                    super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+//                }
+//
+//                @Override
+//                public void onPageSelected(int position) {
+//                    super.onPageSelected(position);
+//                    switch (position) {
+//                        case 0:
+//                            chipNavigationBar.setItemSelected(prevmenu, false);
+//                            chipNavigationBar.setItemSelected(R.id.home_student, true);
+//                            prevmenu = R.id.home_student;
+//                            break;
+//                        case 1:
+//                            chipNavigationBar.setItemSelected(prevmenu, false);
+//                            chipNavigationBar.setItemSelected(R.id.explore, true);
+//                            prevmenu = R.id.explore;
+//                            break;
+//                        case 2:
+//                            chipNavigationBar.setItemSelected(prevmenu, false);
+//                            chipNavigationBar.setItemSelected(R.id.quiz, true);
+//                            prevmenu = R.id.quiz;
+//                            break;
+//                        case 3:
+//                            chipNavigationBar.setItemSelected(prevmenu, false);
+//                            chipNavigationBar.setItemSelected(R.id.calender_student, true);
+//                            prevmenu = R.id.calender_student;
+//                            break;
+//                        case 4:
+//                            chipNavigationBar.setItemSelected(prevmenu, false);
+//                            chipNavigationBar.setItemSelected(R.id.profile_student, true);
+//                            prevmenu = R.id.profile_student;
+//                            break;
+//                        default:
+//                            return;
+//                    }
+//                }
+//
+//                @Override
+//                public void onPageScrollStateChanged(int state) {
+//                    super.onPageScrollStateChanged(state);
+//                }
+//            });
         }
 
         viewPager2.setOffscreenPageLimit(5);
