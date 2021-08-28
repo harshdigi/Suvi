@@ -1,9 +1,14 @@
 package com.kalvifunlearning.suvi.Models;
 
-public class StudentModel {
-    String name, email, mobile, city, board, standard , language , accountType ;
+import android.net.Uri;
 
-    public StudentModel(String name, String email, String mobile,String city, String board, String standard, String language, String accountType) {
+public class StudentModel {
+    String name, email, mobile, city, board, standard , language , accountType,uid;
+    Uri imageUrl ;
+
+
+
+    public StudentModel(String name, String email, String mobile, String city, String board, String standard, String language, String accountType, Uri imageUrl, String uid) {
         this.name = name;
         this.email = email;
         this.mobile = mobile;
@@ -12,6 +17,35 @@ public class StudentModel {
         this.standard = standard;
         this.language = language;
         this.accountType = accountType;
+        this.uid= uid;
+        this.imageUrl = imageUrl;
+    }
+    public StudentModel(String name, String email, String mobile, String city, String board, String standard, String language, String accountType, Uri imageUrl) {
+        this.name = name;
+        this.email = email;
+        this.mobile = mobile;
+        this.city = city;
+        this.board = board;
+        this.standard = standard;
+        this.language = language;
+        this.accountType = accountType;
+        this.uid= uid;
+        this.imageUrl = imageUrl;
+    }
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public Uri getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(Uri imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getName() {

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
@@ -27,7 +28,8 @@ public class StudentSignUpActivity extends AppCompatActivity {
     ActivityStudentSignUpBinding binding;
     //Firebase Variable
     private  FirebaseDatabase rootNode;
-    private DatabaseReference rootRefrence;
+    private DatabaseReference rootReference,newReference;
+
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +50,8 @@ public class StudentSignUpActivity extends AppCompatActivity {
         });
         //Firebase Hooks
        rootNode = FirebaseDatabase.getInstance();
-       rootRefrence = rootNode.getReference("Users");
+       rootReference = rootNode.getReference("Users");
+       newReference =rootNode.getReference("New/Student");
         mAuth = FirebaseAuth.getInstance();
 
     }
@@ -94,12 +97,17 @@ public class StudentSignUpActivity extends AppCompatActivity {
     private Boolean validatePassword(){
         String val = binding.yourPassword.getText().toString();
         String cpass = binding.yourConfirmPassword.getText().toString();
-        String passPatter = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";
+        Pattern PASSWORD_PATTERN =
+                Pattern.compile("^" +
+                        "(?=.*[@#$%^&+=])" +     // at least 1 special character
+                        "(?=\\S+$)" +            // no white spaces
+                        ".{4,}" +                // at least 4 characters
+                        "$");
         if(val.isEmpty()){
             binding.yourPassword.setError("Field cannot be empty");
             return false;
         }
-        else if(!val.matches(passPatter)) {
+        else if(!PASSWORD_PATTERN.matcher(val).matches()) {
             binding.yourPassword.setError("Password too weak, Password must be 4 characters.\nPassword must not contain whitespace.\nPassword must contain at least 1 special character. ");
             return false;
         }
@@ -151,8 +159,10 @@ public class StudentSignUpActivity extends AppCompatActivity {
                                             public void onComplete(@NonNull Task task) {
                                                 // Re-enable button
                                                 if (task.isSuccessful()) {
-                                                    StudentModel studentModel = new StudentModel(name,email,mobile,city,board,standard,language,accountType);
-                                                    rootRefrence.child(user.getUid()).setValue(studentModel);
+                                                    Uri imageUrl = user.getPhotoUrl();
+                                                    StudentModel studentModel = new StudentModel(name,email,mobile,city,board,standard,language,accountType,imageUrl);
+                                                    newReference.child(user.getUid()).setValue(studentModel);
+                                                    rootReference.child(user.getUid()).setValue(studentModel);
                                                     Toast.makeText(StudentSignUpActivity.this,
                                                             "Verification email sent to " + user.getEmail(),
                                                             Toast.LENGTH_SHORT).show();

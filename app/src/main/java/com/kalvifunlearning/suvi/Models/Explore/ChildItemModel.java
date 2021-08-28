@@ -21,6 +21,9 @@ public class ChildItemModel implements Parcelable {
         this.board = board;
         this.open = open;
     }
+    public ChildItemModel(){
+
+    }
 
     protected ChildItemModel(Parcel in) {
         videoName = in.readString();
