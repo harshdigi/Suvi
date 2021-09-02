@@ -37,14 +37,13 @@ public class AddStudentAdapter extends RecyclerView.Adapter<AddStudentAdapter.Ad
     private ArrayAdapter<String> adapterSection;
     private DatabaseReference dbReference;
     private Context context;
+
     private String section;
     ArrayList<String> sectionList = new ArrayList<>();
     public AddStudentAdapter(List<StudentModel> studentModels, Context context) {
         this.studentModels = studentModels;
         this.context = context;
     }
-
-
 
     @NonNull
     @Override
@@ -65,6 +64,7 @@ public class AddStudentAdapter extends RecyclerView.Adapter<AddStudentAdapter.Ad
         adapterSection= new ArrayAdapter<String>(context,android.R.layout.simple_spinner_dropdown_item, sectionList);
         holder.classSpinner.setAdapter(adapterSection);
         getSection();
+
         holder.maincard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,6 +90,9 @@ public class AddStudentAdapter extends RecyclerView.Adapter<AddStudentAdapter.Ad
             }
         });
 
+        if(studentModels.isEmpty()){
+            holder.emptyText.setVisibility(View.VISIBLE);
+        }
     }
 
     private void getSection(){
@@ -125,6 +128,7 @@ public class AddStudentAdapter extends RecyclerView.Adapter<AddStudentAdapter.Ad
         LinearLayout studentSelect;
         Spinner classSpinner;
         MaterialButton submit;
+        TextView emptyText;
         AddStudentViewHolder(View itemView) {
             super(itemView);
             studentName = itemView.findViewById(R.id.nameValue);
@@ -135,6 +139,8 @@ public class AddStudentAdapter extends RecyclerView.Adapter<AddStudentAdapter.Ad
             studentSelect = itemView.findViewById(R.id.studentSelect);
             classSpinner = itemView.findViewById(R.id.classSpinner);
             submit = itemView.findViewById(R.id.submit_btn);
+            emptyText = itemView.findViewById(R.id.studentEmptyText);
         }
+
     }
 }
