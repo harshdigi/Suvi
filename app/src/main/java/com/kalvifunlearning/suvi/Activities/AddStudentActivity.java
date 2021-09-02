@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -56,6 +57,9 @@ public class AddStudentActivity extends AppCompatActivity {
                }
             }
         });
+        if(studentModelList.isEmpty()){
+
+        }
     }
 
     private void putData(List<StudentModel> studentModelList) {

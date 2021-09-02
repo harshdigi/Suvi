@@ -16,9 +16,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.material.radiobutton.MaterialRadioButton;
+import com.kalvifunlearning.suvi.Activities.AddVideoActivity;
 import com.kalvifunlearning.suvi.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -29,6 +31,16 @@ public class TeacherHomeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_teacher_home, container, false);
+        RelativeLayout addVideo = root.findViewById(R.id.addVideoCard);
+
+        addVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), AddVideoActivity.class);
+                startActivity(intent);
+            }
+        });
+
         return root;
     }
 }
