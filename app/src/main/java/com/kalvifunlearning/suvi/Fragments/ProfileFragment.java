@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.kalvifunlearning.suvi.Activities.TypeSelectionActivity;
@@ -23,13 +24,15 @@ import org.jetbrains.annotations.NotNull;
 
 
 public class ProfileFragment extends Fragment {
-    Button logoutBtn;
+//    Button logoutBtn;
+    TextView logoutView;
     private SharedPreferences mSahredPref;
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_profile, container, false);
-        logoutBtn = root.findViewById(R.id.logoutBtn);
-        logoutBtn.setOnClickListener(new View.OnClickListener() {
+//        logoutBtn = root.findViewById(R.id.logoutBtn);
+        logoutView = root.findViewById(R.id.logoutView);
+        logoutView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
