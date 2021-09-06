@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.add:
                         viewPager2.setCurrentItem(1);
                         break;
-                    case R.id.student:
+                    case R.id.classes:
                         viewPager2.setCurrentItem(2);
                         break;
                     case R.id.calender_teacher:

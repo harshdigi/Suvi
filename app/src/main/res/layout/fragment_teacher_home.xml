@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
+    android:background="@color/light_White"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.TeacherHomeFragment">
@@ -18,21 +19,16 @@
     <!--        android:textSize="24sp" />-->
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/light_White">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="match_parent"
@@ -85,18 +81,17 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:orientation="horizontal">
 
         <RelativeLayout
-            android:layout_width="180dp"
-            android:layout_height="100dp"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
             android:layout_marginStart="10dp"
-            android:padding="2dp"
+            android:layout_weight="1"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="10dp"
             android:background="@drawable/ic_add_stuff_bg">
 
             <TextView
@@ -108,7 +103,6 @@
                 android:layout_alignParentBottom="true"
                 android:fontFamily="@font/poppins_semibold"
                 android:gravity="center"
-                android:padding="20dp"
                 android:text="Schedule Classes"
                 android:textColor="#636363"
                 android:textSize="20sp" />
@@ -117,9 +111,10 @@
 
         <RelativeLayout
             android:id="@+id/addVideoCard"
-            android:layout_width="180dp"
-            android:layout_height="100dp"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
             android:layout_marginStart="10dp"
+            android:layout_weight="1"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
@@ -146,16 +141,16 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:orientation="horizontal">
 
             <RelativeLayout
-                android:layout_width="180dp"
-                android:layout_height="100dp"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginBottom="10dp"
                 android:background="@drawable/ic_add_stuff_bg">
 
                 <TextView
@@ -175,12 +170,11 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="180dp"
-                android:layout_height="100dp"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
                 android:background="@drawable/ic_add_stuff_bg">
 
                 <TextView
@@ -203,5 +197,4 @@
 
     </LinearLayout>
 
-    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

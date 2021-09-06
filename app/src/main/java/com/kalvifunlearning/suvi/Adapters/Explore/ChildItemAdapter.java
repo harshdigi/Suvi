@@ -35,9 +35,7 @@ public class ChildItemAdapter extends RecyclerView.Adapter<ChildItemAdapter.Chil
 
     @NonNull
     @Override
-    public ChildViewHolder onCreateViewHolder(
-            @NonNull ViewGroup viewGroup,
-            int i)
+    public ChildViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i)
     {
 
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.explore_child_item, viewGroup, false);

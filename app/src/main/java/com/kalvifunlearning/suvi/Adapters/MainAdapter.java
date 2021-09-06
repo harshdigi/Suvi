@@ -12,7 +12,7 @@ import com.kalvifunlearning.suvi.Fragments.StudentHomeFragment;
 import com.kalvifunlearning.suvi.Fragments.StudentQuizFragment;
 import com.kalvifunlearning.suvi.Fragments.TeacherAddFragment;
 import com.kalvifunlearning.suvi.Fragments.TeacherHomeFragment;
-import com.kalvifunlearning.suvi.Fragments.TeacherStudentFragment;
+import com.kalvifunlearning.suvi.Fragments.TeacherClassesFragment;
 
 public class MainAdapter extends FragmentStateAdapter {
     private int totalTab;
@@ -33,7 +33,7 @@ public class MainAdapter extends FragmentStateAdapter {
             case 1:
                 return  new TeacherAddFragment();
             case 2:
-                return  new TeacherStudentFragment();
+                return  new TeacherClassesFragment();
             case 3:
                 return  new CalenderFragment();
             case 4:

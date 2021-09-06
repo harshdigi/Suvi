@@ -89,6 +89,9 @@ public class AddStudentAdapter extends RecyclerView.Adapter<AddStudentAdapter.Ad
 
             }
         });
+        if(studentModels.size()==0){
+
+        }
 
         if(studentModels.isEmpty()){
             holder.emptyText.setVisibility(View.VISIBLE);

@@ -12,7 +12,7 @@
         android:id="@+id/view2"
         android:layout_width="wrap_content"
         android:layout_height="250dp"
-        android:background="@drawable/background_bottom"
+        android:background="@color/yellow_kalvi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -84,6 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:layout_marginBottom="10dp"
         android:drawableStart="@drawable/ic_logout"
         android:drawablePadding="20dp"
         android:drawableTint="#FFC107"
@@ -91,7 +92,8 @@
         android:text="Logout"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <TextView
         android:id="@+id/textView9"
@@ -105,8 +107,11 @@
         android:fontFamily="@font/poppins_semibold"
         android:text="My Payment"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/textView10"
+        app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view2" />
+        app:layout_constraintTop_toBottomOf="@+id/view2"
+        />
 
     <TextView
         android:id="@+id/textView10"
@@ -119,8 +124,10 @@
         android:fontFamily="@font/poppins_semibold"
         android:text="My Classes"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/textView11"
         app:layout_constraintStart_toStartOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintVertical_chainStyle="spread" />
 
     <TextView
         android:id="@+id/textView11"
@@ -133,6 +140,8 @@
         android:fontFamily="@font/poppins_semibold"
         android:text="About Us"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/textView12"
+        app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintStart_toStartOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
@@ -146,6 +155,8 @@
         android:fontFamily="@font/poppins_semibold"
         android:text="Rate Us"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/logoutView"
+        app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintStart_toStartOf="@+id/textView11"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
